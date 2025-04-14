@@ -1,0 +1,13 @@
+services:
+  node:
+    container_name: ${COMPOSE_PROJECT_NAME}_node
+    build:
+      context: ./docker/node
+    image: ${COMPOSE_PROJECT_NAME}_node
+    tty: true
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./src:/var/www/src
+    working_dir: /var/www/src
+    user: 1000:1000
